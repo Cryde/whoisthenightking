@@ -1,0 +1,31 @@
+{% spaceless %}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}Who is the Night King{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('app.css') }}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}"/>
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ asset('img/apple-touch-icon-57x57.png') }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('img/apple-touch-icon-114x114.png') }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('img/apple-touch-icon-72x72.png') }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('img/apple-touch-icon-144x144.png') }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ asset('img/apple-touch-icon-120x120.png') }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ asset('img/apple-touch-icon-152x152.png') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon-32x32.png') }}" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon-16x16.png') }}"  sizes="16x16"/>
+    <meta name="msapplication-TileImage" content="{{ asset('img/mstile-144x144.png') }}" />
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta property="og:site_name" content="Insult.es"/>
+    <meta property="og:title" content="{{ block('title') }}"/>
+    <meta property="og:description" content="{{ block('description') }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="{{ app.request.getUri }}"/>
+    <meta property="og:image" content="{{ absolute_url(asset('img/king/the-king.jpeg')) }}"/>
+    <meta property="og:locale" content="en_US"/>
+</head>
+<body>
+    {% block content %}{% endblock %}
+</body>
+</html>
+{% endspaceless %}
