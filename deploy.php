@@ -7,7 +7,7 @@ require 'vendor/deployer/recipes/recipe/yarn.php';
 
 // Configuration
 
-set('repository', 'git@github.com:Cryde/insult.es.git');
+set('repository', 'git@github.com:Cryde/whoisthenightking.git');
 
 set('git_tty', true); // [Optional] Allocate tty for git on first deployment
 set('keep_releases', 3);
