@@ -1,0 +1,10 @@
+{% extends "@App/base.html.twig" %}
+
+{% block action %}{% endblock %}
+
+{% block content %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit">Submit</button>
+    {{ form_end(form) }}
+{% endblock %}
