@@ -32,5 +32,5 @@ task('php-fpm:restart', function() {
 after('deploy:symlink', 'php-fpm:restart');
 
 // Migrate database before symlink new release.
-//before('deploy:symlink', 'database:migrate');
+before('deploy:symlink', 'database:migrate');
 after('deploy:update_code', 'yarn:install');
