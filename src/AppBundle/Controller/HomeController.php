@@ -2,27 +2,21 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Theory;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends Controller
 {
     /**
      * @Route("/", name="homepage")
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
     {
-        $images = [
-          'bran-1.jpg',
-          'bran-2.jpg',
-          'bran-3.jpg',
-          'the-king.jpeg',
-          'aria-1.jpg',
-          'george-1.jpg',
-        ];
-        shuffle($images);
-        // replace this example code with whatever you need
-        return $this->render('@App/home/home.html.twig', ['king_image' => $images[0]]);
+        $theory = $this->getDoctrine()->getRepository(Theory::class)->getRandom();
+
+        return $this->render('@App/home/home.html.twig', ['theory' => $theory]);
     }
 }
