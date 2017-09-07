@@ -25,6 +25,7 @@
     <meta property="og:locale" content="en_US"/>
 </head>
 <body>
+    {% block action %}<a href="{{ path('theory_add') }}" class="pull-right">I know who is the Night King</a>{% endblock %}
     <h1>Who is the Night King ?</h1>
     {% block content %}{% endblock %}
     <script>
@@ -37,6 +38,9 @@
       ga('send', 'pageview');
 
     </script>
+    <footer>
+        v0.0.1
+    </footer>
 </body>
 </html>
 {% endspaceless %}

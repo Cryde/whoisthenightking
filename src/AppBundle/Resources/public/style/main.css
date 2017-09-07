@@ -7,3 +7,14 @@ body {
 img {
     max-width: 100%;
 }
+
+footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    padding: 15px 0;
+}
+
+.pull-right{
+    float: right
+}
