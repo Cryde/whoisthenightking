@@ -3,7 +3,9 @@
         <img class="img-fluid rounded-circle align-middle" src="{{ asset('img/king/' ~ theory.character.slug ~ '.jpg') }}"/>
     </div>
     <div class="col-lg-8">
-        <h2>I think it is {{ theory.character.name }}</h2>
+        <h2>
+            {%- if isHome is defined %}<a href="{{ path('theory_show', {id: theory.id}) }}">#</a> {% endif -%}
+            I think it is {{ theory.character.name }}</h2>
         <p class="mt-4">
             Because ...
         </p>
