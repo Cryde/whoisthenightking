@@ -27,7 +27,7 @@
 <body>
     <div class="container">
         {% block action %}<a href="{{ path('theory_add') }}" class="btn btn-outline-success float-right">I know who is the Night King</a>{% endblock %}
-        <h1>Who is the Night King ?</h1>
+        <h1><a href="{{ path('homepage') }}">Who is the Night King ?</a></h1>
         <div class="mt-5">
         {% block content %}{% endblock %}
         </div>
