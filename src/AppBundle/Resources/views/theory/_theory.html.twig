@@ -10,8 +10,6 @@
         <p class="font-italic">
             {{ theory.content | nl2br }}
         </p>
-        {% if theory.author %}
-            <p class="text-right">- {{ theory.author }}</p>
-        {% endif %}
+        <p class="text-right">- {{ theory.author ?: 'Anonymous' }}</p>
     </div>
 </div>
