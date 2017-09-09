@@ -44,6 +44,12 @@ module.exports = {
     // With this Brunch will copy all folder in this folder without touching them (img, font, ...)
     'assets': /^src\/AppBundle\/Resources\/public\/assets/
   },
+  npm: {
+    styles: {
+      select2: ['dist/css/select2.css'],
+      'bootstrap': ['dist/css/bootstrap.css'],
+    }
+  },
   modules: {
     autoRequire: {
       'app.js': ['app']

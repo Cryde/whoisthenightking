@@ -1,8 +1,15 @@
-<h2>I think it is {{ theory.character.name }}</h2>
-
-<p>
-    Because ...
-</p>
-<p>
-    {{ theory.content | nl2br }}
-</p>
+<div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-8">
+        <h2>I think it is {{ theory.character.name }}</h2>
+        <p class="mt-4">
+            Because ...
+        </p>
+        <p class="font-italic">
+            {{ theory.content | nl2br }}
+        </p>
+        {% if theory.author %}
+            <p class="text-right">- {{ theory.author }}</p>
+        {% endif %}
+    </div>
+</div>
