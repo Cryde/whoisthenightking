@@ -25,6 +25,13 @@ class Character
      * @ORM\Column(type="string", unique=true, nullable=false)
      */
     protected $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
     /**
      * @var Theory
      *
@@ -106,5 +113,25 @@ class Character
     public function getTheories()
     {
         return $this->theories;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     *
+     * @return $this
+     */
+    public function setSlug(string $slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
     }
 }
