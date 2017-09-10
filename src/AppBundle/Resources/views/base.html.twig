@@ -27,10 +27,10 @@
 <body>
     <div class="container">
         {% block action %}
-            <a href="{{ path('homepage') }}" class="btn btn-outline-info float-right">Get a random theory</a>
-            <a href="{{ path('theory_add') }}" class="btn btn-outline-success float-right mr-2">I know who is the Night King</a>
+            <a href="{{ path('homepage') }}" class="btn btn-outline-info float-right mb-3">Get a random theory</a>
+            <a href="{{ path('theory_add') }}" class="btn btn-outline-success float-right mr-2 mb-3">I know who is the Night King</a>
         {% endblock %}
-        <h1><a href="{{ path('homepage') }}">Who is the Night King ?</a></h1>
+        <h1 class="clearfix"><a href="{{ path('homepage') }}">Who is the Night King ?</a></h1>
         <div class="mt-5">
         {% block content %}{% endblock %}
         </div>
