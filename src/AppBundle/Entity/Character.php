@@ -11,6 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Character
 {
+    const SOMEONE_ELSE = 'someone-else';
+
     /**
      * @var int
      *
