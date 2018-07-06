@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-lg-4 mb-3 mr-auto">
+        <img class="img-fluid rounded-circle align-middle" src="{{ asset('build/assets/images/king/' ~ theory.character.slug ~ '.jpg') }}"/>
+    </div>
+    <div class="col-lg-7">
+        {% if theory.character.slug != constant('App\\Entity\\Character::SOMEONE_ELSE') %}
+        <h2>
+            {%- if isHome is defined %}<a href="{{ path('theory_show', {id: theory.id}) }}">#</a> {% endif -%}
+            I think it is {{ theory.character.name }}</h2>
+        <p class="mt-4">
+            Because ...
+        </p>
+        {% endif %}
+        <p class="font-italic">
+            {{ theory.content | nl2br }}
+        </p>
+        <p class="text-right">- {{ theory.author ?: 'Anonymous' }}</p>
+    </div>
+</div>

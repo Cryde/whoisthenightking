@@ -1,0 +1,5 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    {% include "theory/_theory.html.twig" with {theory: theory, isHome: true} only %}
+{% endblock %}

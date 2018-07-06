@@ -2,41 +2,59 @@
 
 namespace Deployer;
 
-require 'recipe/symfony3.php';
-require 'vendor/deployer/recipes/recipe/yarn.php';
+require 'recipe/symfony4.php';
+require 'vendor/deployer/recipes/recipe/npm.php';
 
-// Configuration
-
+// Project repository
 set('repository', 'git@github.com:Cryde/whoisthenightking.git');
 
-set('git_tty', true); // [Optional] Allocate tty for git on first deployment
+// [Optional] Allocate tty for git clone. Default value is false.
+set('git_tty', true);
 set('keep_releases', 2);
-add('shared_files', []);
-add('shared_dirs', []);
-add('writable_dirs', []);
+set('ssh_multiplexing', true);
 
 // Hosts
 inventory('hosts.yml');
 
+set(
+    'env',
+    function () {
+        return [
+            'APP_ENV'      => get('APP_ENV'),
+            'DATABASE_URL' => get('DATABASE_URL'),
+            'APP_SECRET'   => get('APP_SECRET'),
+        ];
+    }
+);
+
 // Tasks
-desc('Build Brunch assets');
-task('assets:build', function() {
-    run('cd {{release_path}} && {{bin/yarn}} run build:prod');
-});
-after('yarn:install', 'assets:build');
+desc('Build assets');
+task(
+    'assets:build',
+    function () {
+        run('cd {{release_path}} && {{bin/npm}} run build');
+    }
+);
+after('npm:install', 'assets:build');
 
 desc('Remove node_modules folder');
-task('assets:clean', function() {
-    run('cd {{release_path}} && rm -rf node_modules');
-});
+task(
+    'assets:clean',
+    function () {
+        run('cd {{release_path}} && rm -rf node_modules');
+    }
+);
 after('deploy:symlink', 'assets:clean');
 
 desc('Restart PHP-FPM service');
-task('php-fpm:restart', function() {
-    run('sudo service php7.1-fpm reload');
-});
+task(
+    'php-fpm:restart',
+    function () {
+        run('sudo service php7.2-fpm reload');
+    }
+);
 after('deploy:symlink', 'php-fpm:restart');
 
 // Migrate database before symlink new release.
 before('deploy:symlink', 'database:migrate');
-after('deploy:update_code', 'yarn:install');
+after('deploy:update_code', 'npm:install');

@@ -1,0 +1,65 @@
+{% spaceless %}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}Who is the Night King{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('build/css/app.css') }}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="{{ asset('build/assets/images/favicon.ico') }}"/>
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ asset('build/assets/images/apple-touch-icon-57x57.png') }}"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('build/assets/images/apple-touch-icon-114x114.png') }}"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('build/assets/images/apple-touch-icon-72x72.png') }}"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('build/assets/images/apple-touch-icon-144x144.png') }}"/>
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ asset('build/assets/images/apple-touch-icon-120x120.png') }}"/>
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ asset('build/assets/images/apple-touch-icon-152x152.png') }}"/>
+    <link rel="icon" type="image/png" href="{{ asset('build/assets/images/favicon-32x32.png') }}" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="{{ asset('build/assets/images/favicon-16x16.png') }}" sizes="16x16"/>
+    <meta name="msapplication-TileImage" content="{{ asset('build/assets/images/mstile-144x144.png') }}"/>
+    <meta name="description"
+          content="{% block description %}The Night King is the supreme leader and the first of the White Walkers, having existed since the age of the First Men. By extension, he is also the master of the Wights.{% endblock %}">
+    <meta property="og:site_name" content="Insult.es"/>
+    <meta property="og:title" content="{{ block('title') }}"/>
+    <meta property="og:description" content="{{ block('description') }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="{{ app.request.getUri }}"/>
+    <meta property="og:image" content="{{ absolute_url(asset('build/assets/images/king/the-king.jpeg')) }}"/>
+    <meta property="og:locale" content="en_US"/>
+</head>
+<body>
+<h1 class="text-center"><a href="{{ path('homepage') }}"><img src="{{ asset('build/assets/images/logo.png') }}"/> Who is the Night King ?</a></h1>
+<div class="container">
+    <div class="clearfix mt-5">
+        {% block action %}
+            <a href="{{ path('homepage') }}" class="btn btn-outline-info float-right mb-3">Get a random theory</a>
+            <a href="{{ path('theory_add') }}" class="btn btn-outline-success float-right mr-2 mb-3">I know who is the
+                Night King</a>
+        {% endblock %}
+    </div>
+
+    <div class="mt-5">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date()
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]
+    a.async = 1
+    a.src = g
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga')
+
+  ga('create', 'UA-105776246-1', 'auto')
+  ga('send', 'pageview')
+
+</script>
+<footer class="fixed-bottom">
+    v0.0.2 (more to come)
+</footer>
+</body>
+</html>
+{% endspaceless %}
